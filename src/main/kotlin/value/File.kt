@@ -1,5 +1,7 @@
 package value
 
+import value.Rank.Companion.fromNumber
+
 enum class File {
   A,
   B,
@@ -8,6 +10,9 @@ enum class File {
   E,
   F,
   G,
-  H
+  H;
+
+  operator fun minus(files: Int) = values().first { it.ordinal == ordinal - files }
+  operator fun plus(files: Int) = values().first { it.ordinal == ordinal + files }
 }
 
